@@ -1,14 +1,14 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
 import { CredentialsService } from './credentials.service';
-import { CreateCredentialDto } from './dto/create-credential.dto';
-import { UpdateCredentialDto } from './dto/update-credential.dto';
+import { CredentialDto } from './dto/credential.dto';
+
 
 @Controller('credentials')
 export class CredentialsController {
   constructor(private readonly credentialsService: CredentialsService) {}
 
   @Post()
-  create(@Body() createCredentialDto: CreateCredentialDto) {
+  create(@Body() createCredentialDto: CredentialDto) {
     return this.credentialsService.create(createCredentialDto);
   }
 
@@ -23,7 +23,7 @@ export class CredentialsController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateCredentialDto: UpdateCredentialDto) {
+  update(@Param('id') id: string, @Body() updateCredentialDto: CredentialDto) {
     return this.credentialsService.update(+id, updateCredentialDto);
   }
 

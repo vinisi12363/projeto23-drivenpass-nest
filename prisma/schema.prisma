@@ -17,6 +17,7 @@ model Users {
   credentials Credentials[]
   notes       Notes[]
   card        Cards[]
+  session     Session[]
 
   @@map("users")
 }
@@ -54,4 +55,12 @@ model Cards {
   userId     Int
   user       Users    @relation(fields: [userId], references: [id])
   @@map("card")
+}
+
+model Session {
+  id        Int  @id @default(autoincrement())
+  token     String @db.VarChar(255)
+  userId    Int    @db.Integer
+  user   Users  @relation(fields: [userId], references: [id])
+  @@map("session")
 }

@@ -5,6 +5,10 @@ import { CardDto } from './dto/card.dto';
 @Controller('cards')
 export class CardsController {
   constructor(private readonly cardsService: CardsService) {}
+  @Get('health')
+  getHello(){
+    return this.cardsService.getHealthCards();
+  }
 
   @Post()
   create(@Body() createCardDto: CardDto) {

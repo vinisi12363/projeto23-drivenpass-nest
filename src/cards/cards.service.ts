@@ -1,10 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCardDto } from './dto/card.dto';
-import { UpdateCardDto } from './dto/update-card.dto';
+import { CardDto } from './dto/card.dto';
 
 @Injectable()
 export class CardsService {
-  create(createCardDto: CreateCardDto) {
+  getHealthCards(): string {
+    return 'Cards online!';
+  }
+
+  create(createCardDto: CardDto) {
     return 'This action adds a new card';
   }
 
@@ -16,7 +19,7 @@ export class CardsService {
     return `This action returns a #${id} card`;
   }
 
-  update(id: number, updateCardDto: UpdateCardDto) {
+  update(id: number, updateCardDto: CardDto) {
     return `This action updates a #${id} card`;
   }
 

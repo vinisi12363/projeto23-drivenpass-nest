@@ -1,10 +1,15 @@
 import { Injectable } from '@nestjs/common';
-import { CreateSessionDto } from './dto/session.dto';
-import { UpdateSessionDto } from './dto/update-session.dto';
+import { SessionDto } from './dto/session.dto';
+
 
 @Injectable()
 export class SessionsService {
-  create(createSessionDto: CreateSessionDto) {
+  
+  getHealthSessions(): string {
+    return 'Sessions online!';
+  }
+
+  create(createSessionDto: SessionDto) {
     return 'This action adds a new session';
   }
 
@@ -16,7 +21,7 @@ export class SessionsService {
     return `This action returns a #${id} session`;
   }
 
-  update(id: number, updateSessionDto: UpdateSessionDto) {
+  update(id: number, updateSessionDto: SessionDto) {
     return `This action updates a #${id} session`;
   }
 

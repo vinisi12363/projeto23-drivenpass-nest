@@ -1,10 +1,13 @@
 import { Injectable } from '@nestjs/common';
-import { CreateCredentialDto } from './dto/credential.dto';
-import { UpdateCredentialDto } from './dto/update-credential.dto';
+import { CredentialDto } from './dto/credential.dto';
 
 @Injectable()
 export class CredentialsService {
-  create(createCredentialDto: CreateCredentialDto) {
+  getHealthCredentials(): string {
+    return 'Credentials online!';
+  }
+ 
+  create(createCredentialDto: CredentialDto) {
     return 'This action adds a new credential';
   }
 
@@ -16,7 +19,7 @@ export class CredentialsService {
     return `This action returns a #${id} credential`;
   }
 
-  update(id: number, updateCredentialDto: UpdateCredentialDto) {
+  update(id: number, updateCredentialDto: CredentialDto) {
     return `This action updates a #${id} credential`;
   }
 

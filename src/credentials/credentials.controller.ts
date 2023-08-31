@@ -6,6 +6,10 @@ import { CredentialDto } from './dto/credential.dto';
 @Controller('credentials')
 export class CredentialsController {
   constructor(private readonly credentialsService: CredentialsService) {}
+  @Get('health')
+  getHello(){
+    return this.credentialsService.getHealthCredentials();
+  }
 
   @Post()
   create(@Body() createCredentialDto: CredentialDto) {

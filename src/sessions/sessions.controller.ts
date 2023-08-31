@@ -7,6 +7,10 @@ import { SessionDto } from './dto/session.dto';
 export class SessionsController {
   constructor(private readonly sessionsService: SessionsService) {}
 
+  @Get('health')
+  getHello(){
+    return this.sessionsService.getHealthSessions();
+  }
   @Post()
   create(@Body() createSessionDto: SessionDto) {
     return this.sessionsService.create(createSessionDto);

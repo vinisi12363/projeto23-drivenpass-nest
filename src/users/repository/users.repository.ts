@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { UserDto } from '../dto/user.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
-import { ServerInputUserException } from '../exceptions/posts.exceptions';
+import { ServerInputUserException } from '../exceptions/users.exceptions';
 
 @Injectable()
 export class UsersRepository {

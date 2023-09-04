@@ -1,8 +1,8 @@
 import { HttpException, HttpStatus } from "@nestjs/common";
 
 export class ConflictUserException extends HttpException {
-    constructor(title?: string, username?: string) {
-        let message = `Already exists in the database: title: ${title}, username: ${username}`;
+    constructor() {
+        let message = `this email already registered in database`;
         super(message, HttpStatus.CONFLICT);
     }
 }
@@ -14,9 +14,16 @@ export class ServerInputUserException extends HttpException {
     }
 }
 
+export class UnauthorizedUserException extends HttpException {
+    constructor() {
+        let message = `Unauthorized Access!`;
+        super(message, HttpStatus.UNAUTHORIZED);
+    }
+}
+
 export class NotFoundUserException extends HttpException {
-    constructor(id: number) {
-        let message = `User ${id} not found`;
+    constructor(email: string) {
+        let message = `email: ${email} not found`;
         super(message, HttpStatus.NOT_FOUND);
     }
 }

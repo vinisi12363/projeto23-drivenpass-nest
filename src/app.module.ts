@@ -8,6 +8,7 @@ import { CardsModule } from './cards/cards.module';
 import { EraseModule } from './erase/erase.module';
 import { SessionsModule } from './sessions/sessions.module';
 
+
 @Module({
   imports: [UsersModule, CredentialsModule, NotesModule, CardsModule, EraseModule, SessionsModule],
   controllers: [AppController],

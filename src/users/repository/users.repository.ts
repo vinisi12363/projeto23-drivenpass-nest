@@ -26,6 +26,11 @@ export class UsersRepository {
             where: { id }
         })
     }
+    async getUserByEmail(email: string): Promise<UserDto | null> {
+        return await this.prisma.users.findFirst({
+            where: { email }
+        })
+    }
 
     async updateUserById(id: number, body: UserDto): Promise<void> {
         try {

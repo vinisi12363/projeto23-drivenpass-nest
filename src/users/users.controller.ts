@@ -1,6 +1,7 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, HttpStatus, HttpCode } from '@nestjs/common';
 import { UsersService } from './users.service';
 import { UserDto } from './dto/user.dto';
+
 
 
 
@@ -12,9 +13,15 @@ export class UsersController {
     return this.usersService.getHealthUsers();
   }
 
-  @Post()
-  create(@Body() createUserDto: UserDto) {
-    return this.usersService.create(createUserDto);
+  @Post('sign-up')
+  @HttpCode(HttpStatus.CREATED)
+  signUp(@Body() body: UserDto) {
+    return this.usersService.signUp(body);
+  }
+  @Post("sign-in")
+  @HttpCode(HttpStatus.OK)
+  signIn(@Body() body: UserDto) {
+    return this.usersService.signIn(body);
   }
 
   @Get()
